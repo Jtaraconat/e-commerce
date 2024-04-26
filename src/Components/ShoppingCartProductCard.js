@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import Button from "./ValidButton";
+import deleteButton from "../Assets/Details/delete.png";
 
 export default function ShoppingCartProductCard({
   product,
@@ -9,6 +10,7 @@ export default function ShoppingCartProductCard({
   productImage,
   quantity,
   setQuantity,
+  deleteProduct,
 }) {
   const [count, setCount] = useState(1);
 
@@ -41,7 +43,7 @@ export default function ShoppingCartProductCard({
   }
 
   return (
-    <div className="col-span-12 grid grid-cols-12 border border-solid border-black gap-2 p-2">
+    <div className="col-span-12 grid grid-cols-12 border border-solid border-black rounded-lg gap-2 p-2">
       <div className="col-span-6">
         <div className="">
           <img
@@ -62,17 +64,16 @@ export default function ShoppingCartProductCard({
 
       <div className="col-span-6">
         <div className="grid grid-cols-12 gap-2">
-          <div>
+          <div className="col-span-12">
             <p>Quantité</p>
           </div>
-          <div className="col-span-12 grid grid-cols-12 items-center gap-2 mb-2">
+          <div className=" flex flex-row  col-span-12 md:grid md:grid-cols-12 items-center gap-2 mb-2">
             <Button text={"-"} className="col-span-2" onClick={reduceCount} />
             <div className="col-span-2 ">
               <p className="col-span-2 border border-solid border-black rounded-lg text-center p-2">
                 {count}
               </p>
             </div>
-
             <Button text={"+"} className="col-span-2" onClick={addCount} />
           </div>
         </div>
@@ -83,6 +84,11 @@ export default function ShoppingCartProductCard({
             {count * product.productPrice}
           </span>
           €
+        </div>
+        <div className=" size-10 mt-6">
+          <button onClick={deleteProduct}>
+            <img src={deleteButton} />
+          </button>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ export default function FilterSelect({
   id,
 }) {
   return (
-    <div className="col-span-4">
+    <div className="flex flex-col justify-center col-span-12">
       <label htmlFor={htmlFor} className="mr-2">
         {name}
       </label>
